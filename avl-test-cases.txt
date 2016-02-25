@@ -1,3 +1,5 @@
+# this contains all the edge test cases for testing class bst from avlADT
+
 if x is right heavy:
 
 	a) if right child is right heavy or balanced
