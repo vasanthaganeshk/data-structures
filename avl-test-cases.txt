@@ -1,0 +1,23 @@
+if x is right heavy:
+
+	a) if right child is right heavy or balanced
+
+		876, 63, 8000, 78, 79
+		63, 78, 79
+
+	b)	else:
+
+		876, 63, 8000, 78, 70
+		63, 78, 70
+
+if x is left heavy:
+
+	a) if left child is left heavy or balanced
+
+		60, 28, 64, 63, 62
+		64, 63, 62
+
+	b) else:
+		
+		60, 28, 64, 62, 63
+		64, 62, 63
