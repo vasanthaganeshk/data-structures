@@ -1,6 +1,6 @@
 """
 Avl tree implementation (balanced binary search tree)
-Copyright (C) 2015 Vasantha Ganesh K <vasanthaganesh.k@tuta.io>.
+Copyright (C) 2016 Vasantha Ganesh K <vasanthaganesh.k@tuta.io>.
 
 This file is part of data-structures.
 
