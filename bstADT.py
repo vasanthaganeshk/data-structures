@@ -38,7 +38,10 @@ class bst(object):
 		else:
 			cur = self.head
 			while True:
-				if cur.data > data:
+				if cur.data == data:
+					print("This data already exists")
+					break
+				elif cur.data > data:
 					if cur.left == None:
 						temp.parent = cur
 						cur.left = temp
@@ -69,7 +72,7 @@ class bst(object):
 				s.append(cur)
 				cur = cur.left
 
-#inorder traversal without recusion and without stack
+#inorder traversal without recusion and without stack (Morris traversal)
 	def inorder3(self):
 		cur = self.head
 		while cur != None:
@@ -108,14 +111,34 @@ class bst(object):
 		# this method doesn't work
 		cur = self.__find(data)
 		dup = cur
-		if self.find(data):
-			while True:
-				if dup.left == None:
-					cur.data = dup.data
-					cur.parent = None
-					break
+		if cur != None:
+			if cur.left == None and cur.right == None:
+				if cur.data == self.head.data:
+					self.head = None
 				else:
+					if dup.data > dup.parent.data:
+						dup.parent.right = None
+					else:
+						dup.parent.left = None
+			else:
+				if cur.right == None:
+					# Largest element in the left subtree
 					dup = dup.left
+					while dup.right != None:
+						dup = dup.right
+				else:
+					# Smallest element in the right subtree
+					dup = dup.right
+					while dup.left != None:
+						dup = dup.left
+				tempdata = dup.data
+
+				if dup.data > dup.parent.data:
+					dup.parent.right = None
+				else:
+					dup.parent.left = None
+
+				cur.data = tempdata
 		else:
 			print("Element to be removed is not found!")
 # driver program
@@ -124,12 +147,14 @@ temp = map(int, input().split(' '))
 for i in temp:
 	a.insert(i)
 a.inorder(a.head)
-a.remove(0)
-print("Inorder after deletion")
+a.remove(int(input()))
 a.inorder(a.head)
-print("Inorder2's call")
-a.inorder2()
+# a.remove(0)
+# print("Inorder after deletion")
+# a.inorder(a.head)
+# print("Inorder2's call")
+# a.inorder2()
 
-#inorder without stack and without recursion
-print("Inorder3's call:")
-a.inorder3()
+# #inorder without stack and without recursion
+# print("Inorder3's call:")
+# a.inorder3()

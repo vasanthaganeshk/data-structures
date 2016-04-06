@@ -35,7 +35,12 @@ class lnk_list(object):
 		temp = Node(data)
 		temp.next = self.head
 		self.head = temp
-		self.size += 1	
+		self.size += 1
+	def pop(self):
+		temp = self.head.data
+		self.size -= 1
+		self.head = self.head.next
+		return temp
 
 # driver program
 
@@ -47,7 +52,5 @@ for i in inp:
 	a.append(i)
 
 # Displaying output
-cur = a.head
 for i in range(len(a)):
-	print(cur.data)
-	cur = cur.next
+	print(a.pop())
