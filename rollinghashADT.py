@@ -15,4 +15,4 @@ class rollinghash(object):
 			self.size -= 1
 
 	def hashval(self):
-		return self.val%(99999999999999999989)
+		return self.val%(20988936657440586486151264256610222593863921)
