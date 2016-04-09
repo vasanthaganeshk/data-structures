@@ -10,7 +10,7 @@ def in_first(s1, s2):
 	r2 = rollinghash()
 	for i in s2: r2.append(i)
 
-	for i in range(len(s2), len(s1) - len(s2)):
+	for i in range(len(s2), len(s1) + 1):
 		if r1.hashval() == r2.hashval():
 			if s2 == s1[i - len(s2) : i]:
 				return i - len(s2)
