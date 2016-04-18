@@ -1,7 +1,8 @@
 from dfs import dfs
 
 """
-Input is of the form ( edges ) :
+Input is of the form (n and then edges) :
+n
 u1 v1
 u2 v2
 u3 v3
