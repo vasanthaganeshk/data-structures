@@ -24,5 +24,8 @@ for i in range(n):
 	else:
 		adj[key].append(val)
 
+	if val not in adj:
+		adj[val] = []
+
 print(adj)
 dfs(adj)
