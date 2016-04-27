@@ -1,0 +1,1 @@
+from cycle_detectection_directed import is_acyclic

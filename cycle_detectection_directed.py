@@ -1,11 +1,12 @@
+# cycle detectection in directed graph requires colours.
+# This code does not work
+
 parent = {}
-adj = {}
-ans = True
-def is_acyclic(u):
+def is_acyclic(adj, u):
     for i in adj[u]:
         if i not in parent:
             parent[i] = u
-            is_acyclic(i)
+            is_acyclic(adj, i)
         else:
             return False
     return True
@@ -24,6 +25,8 @@ un vn
 """
 
 #--------------Driver program--------------------
+adj = {}
+
 # no of edges
 n = int(input())
 
@@ -35,10 +38,13 @@ for i in range(n):
     else:
         adj[key].append(val)
 
+    if val not in adj:
+        adj[val] = []
+
 start = int(input('start of the graph search>'))
 parent[start] = None
 
-if is_acyclic(start):
+if is_acyclic(adj, start):
     print("The given graph is acyclic")
 else:
     print("The given graph is cyclic")
